@@ -34,6 +34,8 @@ class ShopProduct
     }
 
     /**
+     * Get producer full name
+     *
      * @return string
      */
     public function getProducer(): string
