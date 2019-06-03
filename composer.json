@@ -17,5 +17,10 @@
   "prefer-stable": true,
   "config": {
     "optimize-autoloader": true
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "friendsofphp/php-cs-fixer": "^2.15",
+    "phpmd/phpmd": "^2.6"
   }
 }

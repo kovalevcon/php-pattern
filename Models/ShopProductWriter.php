@@ -11,15 +11,20 @@ class ShopProductWriter
     /**
      * Get writer info
      *
-     * @param \Models\ShopProduct $shopProduct
+     * @param \Models\ShopProduct|\Models\BookProduct|\Models\CDProduct $shopProduct
      * @return void
      */
-    public function write(ShopProduct $shopProduct): void
+    public function write($shopProduct): void
     {
-        $str = "{$shopProduct->title}: "
+        if (!($shopProduct instanceof CDProduct) &&
+            !($shopProduct instanceof BookProduct) &&
+            !($shopProduct instanceof ShopProduct)) {
+            die('Send wrong type value');
+        }
+
+        print "{$shopProduct->title}: "
             . $shopProduct->getProducer()
             . " ({$shopProduct->price})\n"
         ;
-        print $str;
     }
 }

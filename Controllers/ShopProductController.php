@@ -1,6 +1,8 @@
 <?php
 namespace Controllers;
 
+use Models\BookProduct;
+use Models\CDProduct;
 use Models\ShopProduct;
 use Models\ShopProductWriter;
 
@@ -19,8 +21,8 @@ class ShopProductController
     public function showProduct(): void
     {
         /** @var ShopProduct $product */
-        $product = new ShopProduct("Собачье сердце","Михаил","Булгаков", 5.99);
-        print "Автор: {$product->getProducer()}\n";
+        $product = new ShopProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99);
+        print "Author: {$product->getProducer()}\n";
     }
 
     /**
@@ -31,9 +33,26 @@ class ShopProductController
     public function showProductWriter(): void
     {
         /** @var ShopProduct $product */
-        $product = new ShopProduct("Собачье сердце","Михаил","Булгаков", 5.99);
+        $product = new ShopProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99);
         /** @var ShopProductWriter $writer */
         $writer = new ShopProductWriter;
         $writer->write($product);
+    }
+
+    /**
+     * Show book and cd info
+     *
+     * @return void
+     */
+    public function showCDAndBookProduct(): void
+    {
+        /** @var BookProduct $book */
+        $book = new BookProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99, 300);
+        /** @var CDProduct $cdProduct */
+        $cdProduct = new CDProduct("Missing", "Group", "DDT", 10.99, 60.33);
+        /** @var ShopProductWriter $writer */
+        $writer = new ShopProductWriter;
+        $writer->write($book);
+        $writer->write($cdProduct);
     }
 }
