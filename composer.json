@@ -1,0 +1,21 @@
+{
+  "name": "php-pattern",
+  "description": "Test project by code in PHP Pattern book.",
+  "keywords": ["php", "pattern", "OOP"],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Controllers\\": "Controllers/",
+      "Models\\": "Models/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true
+  }
+}
