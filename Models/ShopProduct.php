@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Models;
 
 /**
@@ -9,11 +10,11 @@ namespace Models;
 class ShopProduct
 {
     /** @var string $title */
-    public $title = "Стандартный товар";
+    public $title = "Standard product";
     /** @var string $productMainName */
-    public $productMainName = "Фамилия автора";
+    public $productMainName = "Main name author";
     /** @var string $productFistName */
-    public $productFistName = "Имя автора";
+    public $productFistName = "First name author";
     /** @var float $price */
     public $price = 0;
 
