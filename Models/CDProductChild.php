@@ -10,7 +10,7 @@ namespace Models;
 class CDProductChild extends ShopProductParent
 {
     /** @var float $playLength */
-    public $playLength;
+    private $playLength;
 
     /**
      * CDProductChild constructor.

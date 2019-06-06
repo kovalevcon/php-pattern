@@ -10,15 +10,15 @@ namespace Models;
 class ShopProductParent
 {
     /** @var string $title */
-    public $title = "Стандартный товар";
+    private $title;
     /** @var string $producerMainName */
-    public $producerMainName = "Фамилия автора";
+    private $producerMainName;
     /** @var string $producerFistName */
-    public $producerFistName = "Имя автора";
+    private $producerFistName;
     /** @var float $price */
     protected $price = 0;
     /** @var float $discount */
-    public $discount = 0;
+    private $discount = 0;
 
     /**
      * ShopProductParent constructor.
@@ -41,6 +41,67 @@ class ShopProductParent
     }
 
     /**
+     * Getter for title attribute
+     *
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Getter for producerMainName attribute
+     *
+     * @return string
+     */
+    public function getProducerMainName(): string
+    {
+        return $this->producerMainName;
+    }
+
+    /**
+     * Getter for producerFistName attribute
+     *
+     * @return string
+     */
+    public function getProducerFistName(): string
+    {
+        return $this->producerFistName;
+    }
+
+    /**
+     * Getter for price with discount
+     *
+     * @return float
+     */
+    public function getPrice(): float
+    {
+        return $this->price - $this->discount;
+    }
+
+    /**
+     * Setter for discount attribute
+     *
+     * @param float $num
+     * @return void
+     */
+    public function setDiscount(float $num): void
+    {
+        $this->discount = $num;
+    }
+
+    /**
+     * Getter for discount attribute
+     *
+     * @return float
+     */
+    public function getDiscount(): float
+    {
+        return $this->discount;
+    }
+
+    /**
      * Get producer full name
      *
      * @return string
@@ -58,26 +119,5 @@ class ShopProductParent
     public function getSummaryLine(): string
     {
         return "{$this->title} ( {$this->producerMainName}, {$this->producerFistName} )";
-    }
-
-    /**
-     * Set discount value
-     *
-     * @param float $num
-     * @return void
-     */
-    public function setDiscount(float $num): void
-    {
-        $this->discount = $num;
-    }
-
-    /**
-     * Get price with discount
-     *
-     * @return float
-     */
-    public function getPrice(): float
-    {
-        return $this->price - $this->discount;
     }
 }

@@ -30,10 +30,10 @@ class ShopProductWriterV2
      */
     public function write(): void
     {
-        $str = '';
+        $str = "\n";
         foreach ($this->products as $product) {
             /** @var \Models\ShopProductParent $product */
-            $str .= "{$product->title}: "
+            $str .= "{$product->getTitle()}: "
                 . $product->getProducer()
                 . " ({$product->getPrice()})\n";
         }

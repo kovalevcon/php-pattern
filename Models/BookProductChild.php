@@ -10,7 +10,7 @@ namespace Models;
 class BookProductChild extends ShopProductParent
 {
     /** @var int $numPages */
-    public $numPages;
+    private $numPages;
 
     /**
      * BookProductChild constructor.
