@@ -1,6 +1,11 @@
 <?php
+declare(strict_types=1);
 namespace Database;
 
+use Models\BookProductChild;
+use Models\CDProductChild;
+use Models\ShopProductParent;
+use PDO;
 use SQLite3;
 
 /**
@@ -48,5 +53,54 @@ EOF;
         } else {
             print "Error while creating `products` table: {$this->lastErrorMsg()}\n";
         }
+    }
+
+    /**
+     * Get instance of ShopProductParent by DB values
+     *
+     * @param int  $id
+     * @param \PDO $pdo
+     * @return \Models\ShopProductParent|null
+     */
+    public static function getInstance(int $id, PDO $pdo): ?ShopProductParent
+    {
+        /** @var \PDOStatement $smtm */
+        $smtm = $pdo->prepare("select * from products where id=?");
+        $smtm->execute([$id]);
+        $row = $smtm->fetch();
+
+        if (empty($row)) {
+            return null;
+        }
+
+        /** @var BookProductChild|CDProductChild $product */
+        if ($row['type'] === "book") {
+            $product = new BookProductChild(
+                $row['title'],
+                $row['firstname'],
+                $row['mainname'],
+                $row['price'],
+                $row['numpages']
+            );
+        } elseif ($row['type'] === "cd") {
+            $product = new CDProductChild(
+                $row['title'],
+                $row['firstname'],
+                $row['mainname'],
+                $row['price'],
+                $row['playlength']
+            );
+        } else {
+            $product = new ShopProductParent(
+                $row['title'],
+                $row['firstname'],
+                $row['mainname'],
+                $row['price']
+            );
+        }
+        $product->setId($row['id']);
+        $product->setDiscount($row['discount']);
+
+        return $product;
     }
 }

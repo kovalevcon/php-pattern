@@ -19,6 +19,8 @@ class ShopProductParent
     protected $price = 0;
     /** @var float $discount */
     private $discount = 0;
+    /** @var int $id */
+    private $id = 0;
 
     /**
      * ShopProductParent constructor.
@@ -38,6 +40,17 @@ class ShopProductParent
         $this->producerFistName = $firstName;
         $this->producerMainName = $mainName;
         $this->price = $price;
+    }
+
+    /**
+     * Setter for ID attribute
+     *
+     * @param int $id
+     * @return void
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     /**
