@@ -5,12 +5,15 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=7.2"
+    "php": ">=7.2",
+    "ext-sqlite3": "*",
+    "ext-pdo": "*"
   },
   "autoload": {
     "psr-4": {
       "Controllers\\": "Controllers/",
-      "Models\\": "Models/"
+      "Models\\": "Models/",
+      "Database\\": "Database/"
     }
   },
   "minimum-stability": "dev",
