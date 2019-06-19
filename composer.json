@@ -22,6 +22,8 @@
     "psr-4": {
       "Controllers\\": "Controllers/",
       "Models\\": "Models/",
+      "Interfaces\\": "Models/Interfaces",
+      "Traits\\": "Models/Traits",
       "Database\\": "Database/"
     }
   },

@@ -2,13 +2,20 @@
 declare(strict_types=1);
 namespace Models;
 
+use Interfaces\ChargeableInterface;
+use Interfaces\IdentityObjectInterface;
+use Traits\IdentityTrait;
+use Traits\PriceUtilitiesTrait;
+
 /**
  * Class ShopProductParent
  *
  * @package Models
  */
-class ShopProductParent
+class ShopProductParent implements ChargeableInterface, IdentityObjectInterface
 {
+    use PriceUtilitiesTrait, IdentityTrait;
+
     /** @var string $title */
     private $title;
     /** @var string $producerMainName */
@@ -84,9 +91,7 @@ class ShopProductParent
     }
 
     /**
-     * Getter for price with discount
-     *
-     * @return float
+     * @inheritDoc
      */
     public function getPrice(): float
     {

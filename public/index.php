@@ -10,8 +10,10 @@ $shopController = new Controllers\ShopProductController;
 //$shopController->showCDAndBookProduct(); // Before use inheritance
 //$shopController->showCDAndBookInheritanceProduct(); // Use inheritance models
 //$shopController->showCDAndBookInheritanceProductWriter();
-$shopController->showTextProductWriter();
-$shopController->showXMLProductWriter();
+//$shopController->showTextProductWriter();
+//$shopController->showXMLProductWriter();
+$shopController->showProductCalculateTax();
+$shopController->showProductGenerateId();
 
 ///** @var Controllers\ProductDbController $productDbController */
 //$productDbController = new Controllers\ProductDbController;

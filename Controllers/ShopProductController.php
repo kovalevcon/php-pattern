@@ -144,4 +144,24 @@ class ShopProductController
         $writer->addProduct($this->cdProductChild);
         $writer->write();
     }
+
+    /**
+     * Show product calculate tax value
+     *
+     * @return void
+     */
+    public function showProductCalculateTax(): void
+    {
+        print "Calculate tax: {$this->bookProductChild->calculateTax(100)}\n";
+    }
+
+    /**
+     * Show product generate ID
+     *
+     * @return void
+     */
+    public function showProductGenerateId(): void
+    {
+        print "Generated ID: {$this->bookProductChild->generateId()}\n";
+    }
 }
