@@ -7,8 +7,17 @@
   "require": {
     "php": ">=7.2",
     "ext-sqlite3": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-xmlwriter": "*"
   },
+  "authors": [
+    {
+      "name": "Constantine Kovalev",
+      "email": "zilich08@gmail.com",
+      "homepage": "https://kovalevcon.github.io/",
+      "role": "Web Developer"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Controllers\\": "Controllers/",

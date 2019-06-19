@@ -9,6 +9,8 @@ use Models\CDProductChild;
 use Models\ShopProduct;
 use Models\ShopProductWriter;
 use Models\ShopProductWriterV2;
+use Models\TextProductWriter;
+use Models\XmlProductWriter;
 
 /**
  * Class ShopProductController
@@ -17,6 +19,42 @@ use Models\ShopProductWriterV2;
  */
 class ShopProductController
 {
+    /** @var ShopProduct $product */
+    private $shopProduct;
+    /** @var BookProduct $bookProduct */
+    private $bookProduct;
+    /** @var CDProduct $cdProduct */
+    private $cdProduct;
+    /** @var BookProductChild $bookProductChild */
+    private $bookProductChild;
+    /** @var CDProductChild $cdProductChild */
+    private $cdProductChild;
+
+    /** @var array $productAttributes */
+    private $productAttributes = [
+        'book' => [
+            "Heart of a Dog", "Mikhail", "Bulgakov", 5.99
+        ],
+        'book_v2' => [
+            "Heart of a Dog", "Mikhail", "Bulgakov", 5.99, 300
+        ],
+        'cd' => [
+            "Missing", "Group", "DDT", 10.99, 60.33
+        ]
+    ];
+
+    /**
+     * ShopProductController constructor.
+     */
+    public function __construct()
+    {
+        $this->shopProduct = new ShopProduct(...$this->productAttributes['book']);
+        $this->bookProduct = new BookProduct(...$this->productAttributes['book_v2']);
+        $this->cdProduct = new CDProduct(...$this->productAttributes['cd']);
+        $this->bookProductChild = new BookProductChild(...$this->productAttributes['book_v2']);
+        $this->cdProductChild = new CDProductChild(...$this->productAttributes['cd']);
+    }
+
     /**
      * Show product info
      *
@@ -24,9 +62,7 @@ class ShopProductController
      */
     public function showProduct(): void
     {
-        /** @var ShopProduct $product */
-        $product = new ShopProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99);
-        print "Author: {$product->getProducer()}\n";
+        print "Author: {$this->shopProduct->getProducer()}\n";
     }
 
     /**
@@ -36,11 +72,9 @@ class ShopProductController
      */
     public function showProductWriter(): void
     {
-        /** @var ShopProduct $product */
-        $product = new ShopProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99);
         /** @var ShopProductWriter $writer */
         $writer = new ShopProductWriter;
-        $writer->write($product);
+        $writer->write($this->shopProduct);
     }
 
     /**
@@ -50,14 +84,10 @@ class ShopProductController
      */
     public function showCDAndBookProduct(): void
     {
-        /** @var BookProduct $book */
-        $book = new BookProduct("Heart of a Dog", "Mikhail", "Bulgakov", 5.99, 300);
-        /** @var CDProduct $cdProduct */
-        $cdProduct = new CDProduct("Missing", "Group", "DDT", 10.99, 60.33);
         /** @var ShopProductWriter $writer */
         $writer = new ShopProductWriter;
-        $writer->write($book);
-        $writer->write($cdProduct);
+        $writer->write($this->bookProduct);
+        $writer->write($this->cdProduct);
     }
 
     /**
@@ -67,14 +97,10 @@ class ShopProductController
      */
     public function showCDAndBookInheritanceProduct(): void
     {
-        /** @var BookProductChild $book */
-        $book = new BookProductChild("Heart of a Dog", "Mikhail", "Bulgakov", 5.99, 300);
-        /** @var CDProductChild $cdProduct */
-        $cdProduct = new CDProductChild("Missing", "Group", "DDT", 10.99, 60.33);
-        print "{$book->getSummaryLine()}\n";
-        print "{$cdProduct->getSummaryLine()} \n";
-        $cdProduct->setDiscount(1.99);
-        print "Price - {$cdProduct->getPrice()}";
+        print "{$this->bookProductChild->getSummaryLine()}\n";
+        print "{$this->cdProductChild->getSummaryLine()} \n";
+        $this->cdProductChild->setDiscount(1.99);
+        print "Price - {$this->cdProductChild->getPrice()}";
     }
 
     /**
@@ -84,14 +110,38 @@ class ShopProductController
      */
     public function showCDAndBookInheritanceProductWriter(): void
     {
-        /** @var BookProductChild $book */
-        $book = new BookProductChild("Heart of a Dog", "Mikhail", "Bulgakov", 5.99, 300);
-        /** @var CDProductChild $cdProduct */
-        $cdProduct = new CDProductChild("Missing", "Group", "DDT", 10.99, 60.33);
         /** @var ShopProductWriterV2 $writer */
         $writer = new ShopProductWriterV2;
-        $writer->addProduct($book);
-        $writer->addProduct($cdProduct);
+        $writer->addProduct($this->bookProductChild);
+        $writer->addProduct($this->cdProductChild);
+        $writer->write();
+    }
+
+    /**
+     * Show book and cd info uses TextProductWriter model
+     *
+     * @return void
+     */
+    public function showTextProductWriter(): void
+    {
+        /** @var TextProductWriter $writer */
+        $writer = new TextProductWriter;
+        $writer->addProduct($this->bookProductChild);
+        $writer->addProduct($this->cdProductChild);
+        $writer->write();
+    }
+
+    /**
+     * Show book and cd info uses XmlProductWriter model
+     *
+     * @return void
+     */
+    public function showXMLProductWriter(): void
+    {
+        /** @var XmlProductWriter $writer */
+        $writer = new XmlProductWriter;
+        $writer->addProduct($this->bookProductChild);
+        $writer->addProduct($this->cdProductChild);
         $writer->write();
     }
 }
