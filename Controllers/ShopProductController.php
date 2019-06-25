@@ -10,6 +10,7 @@ use Models\ShopProduct;
 use Models\ShopProductWriter;
 use Models\ShopProductWriterV2;
 use Models\TextProductWriter;
+use Models\UtilityService;
 use Models\XmlProductWriter;
 
 /**
@@ -164,4 +165,17 @@ class ShopProductController
     {
         print "Generated ID: {$this->bookProductChild->generateId()}\n";
     }
+
+    /**
+     * Show calculate price utilities`
+     *
+     * @return void
+     */
+    public function showPriceUtilities(): void
+    {
+        /** @var UtilityService $utility */
+        $utility = new UtilityService;
+        print "{$utility->calculateTax(100)}\n{$utility->basicTax(100)}";
+    }
+
 }

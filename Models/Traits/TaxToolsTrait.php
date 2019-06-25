@@ -3,15 +3,12 @@ declare(strict_types=1);
 namespace Traits;
 
 /**
- * Trait PriceUtilitiesTrait
+ * Trait TaxToolsTrait
  *
  * @package Traits
  */
-trait PriceUtilitiesTrait
+trait TaxToolsTrait
 {
-    /** @var int $taxRate */
-    private $taxRate = 17;
-
     /**
      * Calculate tax price
      *
@@ -20,6 +17,6 @@ trait PriceUtilitiesTrait
      */
     public function calculateTax($price)
     {
-        return ($this->taxRate / 100) * $price;
+        return 222;
     }
 }

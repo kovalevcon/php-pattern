@@ -12,8 +12,9 @@ $shopController = new Controllers\ShopProductController;
 //$shopController->showCDAndBookInheritanceProductWriter();
 //$shopController->showTextProductWriter();
 //$shopController->showXMLProductWriter();
-$shopController->showProductCalculateTax();
-$shopController->showProductGenerateId();
+//$shopController->showProductCalculateTax();
+//$shopController->showProductGenerateId();
+$shopController->showPriceUtilities();
 
 ///** @var Controllers\ProductDbController $productDbController */
 //$productDbController = new Controllers\ProductDbController;
