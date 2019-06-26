@@ -9,9 +9,6 @@ namespace Traits;
  */
 trait PriceUtilitiesTrait
 {
-    /** @var int $taxRate */
-    private $taxRate = 17;
-
     /**
      * Calculate tax price
      *
@@ -20,6 +17,13 @@ trait PriceUtilitiesTrait
      */
     public function calculateTax($price)
     {
-        return ($this->taxRate / 100) * $price;
+        return ($this->getTaxRate() / 100) * $price;
     }
+
+    /**
+     * Get tax rate
+     *
+     * @return float|int
+     */
+    abstract public function getTaxRate();
 }

@@ -174,8 +174,7 @@ class ShopProductController
     public function showPriceUtilities(): void
     {
         /** @var UtilityService $utility */
-        $utility = new UtilityService;
-        print "{$utility->calculateTax(100)}\n{$utility->basicTax(100)}";
+        $utility = new UtilityService(100);
+        print "{$utility->getFinalPrice()}\n";
     }
-
 }

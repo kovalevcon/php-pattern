@@ -138,4 +138,12 @@ class ShopProductParent implements ChargeableInterface, IdentityObjectInterface
     {
         return "{$this->title} ( {$this->producerMainName}, {$this->producerFistName} )";
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getTaxRate()
+    {
+        return 17;
+    }
 }
