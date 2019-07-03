@@ -22,6 +22,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$productDbController->checkConnection();
 //$productDbController->createTable();
 
-/** @var \Controllers\ObjectController $objectController */
-$objectController = new \Controllers\ObjectController;
-$objectController->showLateStaticBindings();
+// Chapter 4: Late Static Bindings
+///** @var \Controllers\ObjectController $objectController */
+//$objectController = new \Controllers\ObjectController;
+//$objectController->showLateStaticBindings();
+
+// Chapter 4: Exceptions
+/** @var \Controllers\XmlConfController $xmlConfController */
+$xmlConfController = new \Controllers\XmlConfController;
+$xmlConfController->getAndSetXmlConf();

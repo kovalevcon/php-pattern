@@ -8,7 +8,9 @@
     "php": ">=7.2",
     "ext-sqlite3": "*",
     "ext-pdo": "*",
-    "ext-xmlwriter": "*"
+    "ext-xmlwriter": "*",
+    "ext-simplexml": "*",
+    "ext-libxml": "*"
   },
   "authors": [
     {
@@ -21,10 +23,11 @@
   "autoload": {
     "psr-4": {
       "Controllers\\": "Controllers/",
+      "Database\\": "Database/",
+      "Exceptions\\": "Models/Exceptions",
       "Models\\": "Models/",
       "Interfaces\\": "Models/Interfaces",
-      "Traits\\": "Models/Traits",
-      "Database\\": "Database/"
+      "Traits\\": "Models/Traits"
     }
   },
   "minimum-stability": "dev",

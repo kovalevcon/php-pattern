@@ -2,8 +2,7 @@
 declare(strict_types=1);
 namespace Controllers;
 
-use Models\SpreadSheetObject;
-use Models\UserObject;
+use Models\{SpreadSheetObject, UserObject};
 
 /**
  * Class ShopProductController

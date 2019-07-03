@@ -2,16 +2,18 @@
 declare(strict_types=1);
 namespace Controllers;
 
-use Models\BookProduct;
-use Models\BookProductChild;
-use Models\CDProduct;
-use Models\CDProductChild;
-use Models\ShopProduct;
-use Models\ShopProductWriter;
-use Models\ShopProductWriterV2;
-use Models\TextProductWriter;
-use Models\UtilityService;
-use Models\XmlProductWriter;
+use Models\{
+    BookProduct,
+    BookProductChild,
+    CDProduct,
+    CDProductChild,
+    ShopProduct,
+    ShopProductWriter,
+    ShopProductWriterV2,
+    TextProductWriter,
+    UtilityService,
+    XmlProductWriter
+};
 
 /**
  * Class ShopProductController
