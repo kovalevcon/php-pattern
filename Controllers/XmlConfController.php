@@ -21,6 +21,7 @@ class XmlConfController
     public function getAndSetXmlConf(): void
     {
         try {
+            print("Start of work");
             /** @var XmlConf $conf */
             $conf = new XmlConf(__DIR__ . '/../Tools/XmlConf.xml');
             print("user: {$conf->get('user')}\n");
@@ -35,6 +36,8 @@ class XmlConfController
             print("ConfException: {$e->getMessage()}");
         } catch (Exception $e) {
             print("Exception: {$e->__toString()}");
+        } finally {
+            print("End of work");
         }
     }
 }

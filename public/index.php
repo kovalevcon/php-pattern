@@ -28,6 +28,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$objectController->showLateStaticBindings();
 
 // Chapter 4: Exceptions
-/** @var \Controllers\XmlConfController $xmlConfController */
-$xmlConfController = new \Controllers\XmlConfController;
-$xmlConfController->getAndSetXmlConf();
+///** @var \Controllers\XmlConfController $xmlConfController */
+//$xmlConfController = new \Controllers\XmlConfController;
+//$xmlConfController->getAndSetXmlConf();
+
+/** @var \Controllers\PersonController $personController */
+$personController = new \Controllers\PersonController;
+$personController->getPerson();
