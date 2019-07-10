@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace Controllers;
 
 use Models\PersonInterception;
+use Models\PersonWriter;
 
 /**
  * Class PersonController
@@ -12,7 +13,7 @@ use Models\PersonInterception;
 class PersonController
 {
     /**
-     * Get person name
+     * Get person name and age via __get
      *
      * @return void
      */
@@ -30,5 +31,20 @@ class PersonController
         }
         unset($person->name);
         print "Get name after unset: " . (is_null($person->name) ? 'null' : $person->name);
+    }
+
+    /**
+     * Get person name and age via __call method
+     *
+     * @return void
+     */
+    public function getPersonViaWriter(): void
+    {
+        /** @var PersonInterception $person */
+        $person = new PersonInterception(new PersonWriter);
+        $person->name = 'Yan';
+        $person->age = 25;
+        $person->writeName();
+        $person->writeAge();
     }
 }

@@ -6,13 +6,29 @@ namespace Models;
  * Class PersonInterception
  *
  * @package Models
+ * @method mixed writeName() see realization in PersonWriter
+ * @method mixed writeAge() see realization in PersonWriter
  */
 class PersonInterception
 {
-    /** @var string $_name */
+    /** @var string $privateName */
     private $privateName;
     /** @var int $privateAge */
     private $privateAge;
+    /** @var PersonWriter|null $writer */
+    private $writer;
+
+    /**
+     * PersonInterception constructor.
+     *
+     * @param PersonWriter|null $writer
+     */
+    public function __construct($writer = null)
+    {
+        if ($writer instanceof PersonWriter) {
+            $this->writer = $writer;
+        }
+    }
 
     /**
      * Interception for __get method
@@ -67,6 +83,22 @@ class PersonInterception
     public function __unset(string $name)
     {
         return $this->__set($name, null);
+    }
+
+    /**
+     * Interception for __call method
+     *
+     * @param string $methodName
+     * @param array  $args
+     * @return mixed
+     */
+    public function __call(string $methodName, array $args)
+    {
+        if ($this->writer && method_exists($this->writer, $methodName)) {
+            return $this->writer->{$methodName}($this);
+        }
+
+        return null;
     }
 
     /**

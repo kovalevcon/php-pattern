@@ -35,3 +35,4 @@ require_once __DIR__ . '/../vendor/autoload.php';
 /** @var \Controllers\PersonController $personController */
 $personController = new \Controllers\PersonController;
 $personController->getPerson();
+$personController->getPersonViaWriter();
