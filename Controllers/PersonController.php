@@ -2,8 +2,7 @@
 declare(strict_types=1);
 namespace Controllers;
 
-use Models\PersonInterception;
-use Models\PersonWriter;
+use Models\{PersonInterception, PersonWriter};
 
 /**
  * Class PersonController

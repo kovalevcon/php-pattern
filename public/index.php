@@ -32,7 +32,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$xmlConfController = new \Controllers\XmlConfController;
 //$xmlConfController->getAndSetXmlConf();
 
-/** @var \Controllers\PersonController $personController */
-$personController = new \Controllers\PersonController;
-$personController->getPerson();
-$personController->getPersonViaWriter();
+// Chapter 4: Interception
+///** @var \Controllers\PersonController $personController */
+//$personController = new \Controllers\PersonController;
+//$personController->getPerson();
+//$personController->getPersonViaWriter();
+
+// Chapter 4: Composite properties
+/** @var \Controllers\AddressController $addressController */
+$addressController = new \Controllers\AddressController;
+$addressController->getAddresses();
