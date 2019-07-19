@@ -28,6 +28,7 @@ class PersonController
         if (isset($person->age)) {
             print "Get age: {$person->age}";
         }
+        print "{$person}\n";
         unset($person->name);
         print "Get name after unset: " . (is_null($person->name) ? 'null' : $person->name);
     }

@@ -102,6 +102,16 @@ class PersonInterception
     }
 
     /**
+     * Interception for __toString method
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return "{$this->getName()} ({$this->getAge()} age)";
+    }
+
+    /**
      * Setter for name attribute
      *
      * @param string|null $name
