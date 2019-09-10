@@ -14,8 +14,6 @@ abstract class DomainObject
 
     /**
      * DomainObject constructor.
-     *
-     * @param string $group
      */
     public function __construct()
     {
@@ -29,7 +27,7 @@ abstract class DomainObject
      */
     public static function create()
     {
-        return new static();
+        return new static;
     }
 
     /**
