@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Controllers;
 
-use Models\{PersonInterception, PersonWriter};
+use Models\{Person, PersonInterception, PersonWriter};
 
 /**
  * Class PersonController
@@ -46,5 +46,24 @@ class PersonController
         $person->age = 25;
         $person->writeName();
         $person->writeAge();
+    }
+
+    /**
+     * Get person method by anonymous class
+     *
+     * @return void
+     */
+    public function getMethodWithAnonymousClass(): void
+    {
+        /** @var Person $person */
+        $person = new Person;
+        $person->output(
+            new class extends Person {
+                public function write(Person $person)
+                {
+                    print("{$person->getName()} {$person->getAge()}\n");
+                }
+            }
+        );
     }
 }
