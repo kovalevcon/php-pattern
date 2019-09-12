@@ -34,12 +34,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // Chapter 4: Interception
 /** @var \Controllers\PersonController $personController */
-$personController = new \Controllers\PersonController;
+//$personController = new \Controllers\PersonController;
 //$personController->getPerson();
 //$personController->getPersonViaWriter();
-$personController->getMethodWithAnonymousClass();
+//$personController->getMethodWithAnonymousClass();
 
 // Chapter 4: Composite properties
 ///** @var \Controllers\AddressController $addressController */
 //$addressController = new \Controllers\AddressController;
 //$addressController->getAddresses();
+
+// Chapter 5: Namespace
+/** @var \Controllers\NamespaceController $namespaceController */
+$namespaceController = new \Controllers\NamespaceController;
+$namespaceController->getNamespaces();
