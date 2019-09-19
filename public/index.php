@@ -33,7 +33,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$xmlConfController->getAndSetXmlConf();
 
 // Chapter 4: Interception
-/** @var \Controllers\PersonController $personController */
+///** @var \Controllers\PersonController $personController */
 //$personController = new \Controllers\PersonController;
 //$personController->getPerson();
 //$personController->getPersonViaWriter();
@@ -45,6 +45,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$addressController->getAddresses();
 
 // Chapter 5: Namespace
-/** @var \Controllers\NamespaceController $namespaceController */
-$namespaceController = new \Controllers\NamespaceController;
-$namespaceController->getNamespaces();
+///** @var \Controllers\NamespaceController $namespaceController */
+//$namespaceController = new \Controllers\NamespaceController;
+//$namespaceController->getNamespaces();
+
+require(__DIR__. "/../Models/SplAutoloadRegister.php");
