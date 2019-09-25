@@ -1,5 +1,5 @@
 {
-  "name": "php-pattern",
+  "name": "kovalevcon/php-pattern",
   "description": "Test project by code in PHP Pattern book.",
   "keywords": ["php", "pattern", "OOP"],
   "license": "MIT",

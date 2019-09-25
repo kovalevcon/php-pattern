@@ -49,4 +49,11 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$namespaceController = new \Controllers\NamespaceController;
 //$namespaceController->getNamespaces();
 
-require(__DIR__. "/../Models/SplAutoloadRegister.php");
+// Chapter 5: Autoload
+//require(__DIR__. "/../Models/SplAutoloadRegister.php");
+
+// Chapter 5: Reflection Api
+/** @var \Controllers\ObjectController $objectController */
+$objectController = new \Controllers\ObjectController;
+$objectController->getClassInfoByReflectionApi(Models\CDProduct::class);
+$objectController->getClassSourceByRefectionApi(Models\CDProduct::class);
