@@ -55,5 +55,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // Chapter 5: Reflection Api
 /** @var \Controllers\ObjectController $objectController */
 $objectController = new \Controllers\ObjectController;
-$objectController->getClassInfoByReflectionApi(Models\CDProduct::class);
-$objectController->getClassSourceByRefectionApi(Models\CDProduct::class);
+//$objectController->getClassInfoByReflectionApi(Models\CDProduct::class);
+//$objectController->getClassSourceByRefectionApi(Models\CDProduct::class);
+$objectController->getMethodInfoByReflectionApi(Models\CDProduct::class, 'getSummaryLine');
+$objectController->getMethodSourceByRefectionApi(Models\CDProduct::class, 'getSummaryLine');

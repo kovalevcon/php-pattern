@@ -33,7 +33,7 @@ class ObjectController
     {
         /** @var \ReflectionClass $refection */
         $refection = new \ReflectionClass($class);
-        $infoData = ClassInfo::getInfoData($refection);
+        $infoData = ClassInfo::getClassInfoData($refection);
 
         foreach ($infoData as $data) {
             print_r("{$data}\n");
@@ -51,6 +51,41 @@ class ObjectController
         /** @var \ReflectionClass $refection */
         $refection = new \ReflectionClass($class);
         $source = ClassInfo::getClassSource($refection);
+
+        print_r($source);
+    }
+
+    /**
+     * Show method of class info by Reflection API
+     *
+     * @param string $class
+     * @param string $method
+     * @return void
+     * @throws \ReflectionException
+     */
+    public function getMethodInfoByReflectionApi(string $class, string $method): void
+    {
+        /** @var \ReflectionClass $refection */
+        $refection = new \ReflectionClass($class);
+        $infoData = ClassInfo::getMethodInfoData($refection->getMethod($method));
+
+        foreach ($infoData as $data) {
+            print_r("{$data}\n");
+        }
+    }
+
+    /**
+     * Get class source by Reflection API
+     *
+     * @param string $class
+     * @param string $method
+     * @throws \ReflectionException
+     */
+    public function getMethodSourceByRefectionApi(string $class, string $method): void
+    {
+        /** @var \ReflectionClass $refection */
+        $refection = new \ReflectionClass($class);
+        $source = ClassInfo::getMethodSource($refection->getMethod($method));
 
         print_r($source);
     }
