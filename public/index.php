@@ -57,5 +57,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $objectController = new \Controllers\ObjectController;
 //$objectController->getClassInfoByReflectionApi(Models\CDProduct::class);
 //$objectController->getClassSourceByRefectionApi(Models\CDProduct::class);
-$objectController->getMethodInfoByReflectionApi(Models\CDProduct::class, 'getSummaryLine');
-$objectController->getMethodSourceByRefectionApi(Models\CDProduct::class, 'getSummaryLine');
+//$objectController->getMethodInfoByReflectionApi(Models\CDProduct::class, 'getSummaryLine');
+//$objectController->getMethodSourceByRefectionApi(Models\CDProduct::class, 'getSummaryLine');
+$objectController->runModuleRunner();

@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace Controllers;
 
-use Models\{ClassInfo, SpreadSheetObject, UserObject};
+use Models\{ClassInfo, ModuleRunnerReflectionApi, SpreadSheetObject, UserObject};
 
 /**
  * Class ShopProductController
@@ -88,5 +88,15 @@ class ObjectController
         $source = ClassInfo::getMethodSource($refection->getMethod($method));
 
         print_r($source);
+    }
+
+    /**
+     * Init and run module runner
+     *
+     * @throws \ReflectionException
+     */
+    public function runModuleRunner(): void
+    {
+        (new ModuleRunnerReflectionApi())->init()->execute();
     }
 }
