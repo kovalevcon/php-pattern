@@ -65,4 +65,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // Chapter 8: Composite and strategy pattern
 /** @var \Controllers\LessonController $lessonController */
 $lessonController = new \Controllers\LessonController();
-$lessonController->getLessonCosts();
+//$lessonController->getLessonCosts();
+$lessonController->sendNotificationAboutNewLesson();
