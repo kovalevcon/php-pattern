@@ -19,7 +19,7 @@ class PersonController
     public function getPerson(): void
     {
         /** @var PersonInterception $person */
-        $person = new PersonInterception;
+        $person = new PersonInterception();
         $person->name = 'Yan';
         $person->age = 25;
         if (isset($person->name)) {

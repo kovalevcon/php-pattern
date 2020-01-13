@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 // Chapter 3: Class and object
@@ -53,10 +54,15 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //require(__DIR__. "/../Models/SplAutoloadRegister.php");
 
 // Chapter 5: Reflection Api
-/** @var \Controllers\ObjectController $objectController */
-$objectController = new \Controllers\ObjectController;
+///** @var \Controllers\ObjectController $objectController */
+//$objectController = new \Controllers\ObjectController;
 //$objectController->getClassInfoByReflectionApi(Models\CDProduct::class);
 //$objectController->getClassSourceByRefectionApi(Models\CDProduct::class);
 //$objectController->getMethodInfoByReflectionApi(Models\CDProduct::class, 'getSummaryLine');
 //$objectController->getMethodSourceByRefectionApi(Models\CDProduct::class, 'getSummaryLine');
-$objectController->runModuleRunner();
+//$objectController->runModuleRunner();
+
+// Chapter 8: Composite and strategy pattern
+/** @var \Controllers\LessonController $lessonController */
+$lessonController = new \Controllers\LessonController();
+$lessonController->getLessonCosts();
