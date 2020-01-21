@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 namespace Controllers;
 
-use Models\Lesson\FixedCostStrategy;
-use Models\Lesson\Lecture;
-use Models\Lesson\Lesson;
-use Models\Lesson\RegistrationMqr;
-use Models\Lesson\Seminar;
-use Models\Lesson\TimedCostStrategy;
+use Models\Lessons\FixedCostStrategy;
+use Models\Lessons\Lecture;
+use Models\Lessons\Lesson;
+use Models\Lessons\RegistrationMqr;
+use Models\Lessons\Seminar;
+use Models\Lessons\TimedCostStrategy;
 
 /**
  * Class LessonController

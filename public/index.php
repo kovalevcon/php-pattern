@@ -63,7 +63,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 //$objectController->runModuleRunner();
 
 // Chapter 8: Composite and strategy pattern
-/** @var \Controllers\LessonController $lessonController */
-$lessonController = new \Controllers\LessonController();
+///** @var \Controllers\LessonController $lessonController */
+//$lessonController = new \Controllers\LessonController();
 //$lessonController->getLessonCosts();
-$lessonController->sendNotificationAboutNewLesson();
+//$lessonController->sendNotificationAboutNewLesson();
+
+// Chapter 9: Factory pattern
+/** @var \Controllers\PatternController $patternController */
+$patternController = new \Controllers\PatternController();
+$patternController->checkSingletonPattern();

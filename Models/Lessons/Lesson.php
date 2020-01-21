@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Models\Lesson;
+namespace Models\Lessons;
 
 /**
- * Class Lesson
+ * Class Lessons
  *
- * @package Models\Lesson
+ * @package Models\Lessons
  */
 abstract class Lesson
 {
@@ -17,7 +17,7 @@ abstract class Lesson
     private $costStrategy;
 
     /**
-     * Lesson constructor.
+     * Lessons constructor.
      *
      * @param int          $duration
      * @param CostStrategy $costStrategy

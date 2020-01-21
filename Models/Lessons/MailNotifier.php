@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Models\Lesson;
+namespace Models\Lessons;
 
 /**
  * Class MailNotifier
  *
- * @package Models\Lesson
+ * @package Models\Lessons
  */
 class MailNotifier extends Notifier
 {

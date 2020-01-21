@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Models\Lesson;
+namespace Models\Lessons;
 
 /**
  * Class Notifier
  *
- * @package Models\Lesson
+ * @package Models\Lessons
  */
 abstract class Notifier
 {
