@@ -71,4 +71,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 // Chapter 9: Factory pattern
 /** @var \Controllers\PatternController $patternController */
 $patternController = new \Controllers\PatternController();
-$patternController->checkSingletonPattern();
+//$patternController->checkSingletonPattern();
+$patternController->checkFactoryMethodPattern();
