@@ -6,6 +6,8 @@ namespace Controllers;
 use Models\Patterns\FactoryMethod\BloggsCommonsManager;
 use Models\Patterns\FactoryMethod\MegaCommonsManager;
 use Models\Patterns\PreferencesSingleton;
+use Models\Patterns\AbstractFactory\MegaCommonsManager as AbstractFactoryMegaCommonsManage;
+use Models\Patterns\AbstractFactory\BloggsCommonsManager as AbstractFactoryBloggsCommonsManager;
 
 /**
  * Class PatternController
@@ -45,6 +47,28 @@ class PatternController
         $bloggsManager = new BloggsCommonsManager();
         print $bloggsManager->getHeaderText();
         print $bloggsManager->getMessageEncoder()->encode();
+        print $bloggsManager->getFooterText();
+    }
+
+    /**
+     * Check abstract factory pattern
+     *
+     * @return void
+     */
+    public function checkAbstractFactoryPattern(): void
+    {
+        $megaManager = new AbstractFactoryMegaCommonsManage();
+        print $megaManager->getHeaderText();
+        print $megaManager->getAppEncoder()->encode();
+        print $megaManager->getTtdEncoder()->encode();
+        print $megaManager->getContactEncoder()->encode();
+        print $megaManager->getFooterText();
+
+        $bloggsManager = new AbstractFactoryBloggsCommonsManager();
+        print $bloggsManager->getHeaderText();
+        print $bloggsManager->getAppEncoder()->encode();
+        print $bloggsManager->getTtdEncoder()->encode();
+        print $bloggsManager->getContactEncoder()->encode();
         print $bloggsManager->getFooterText();
     }
 }
